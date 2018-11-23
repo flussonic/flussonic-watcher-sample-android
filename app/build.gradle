@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'io.fabric' // must be after all plugins
 
 repositories {
-    maven { url 'https://raw.github.com/flussonic/flussonic-watcher-sdk-android/master/'}
+    maven { url 'https://raw.github.com/flussonic/flussonic-watcher-sdk-android/master/' }
     maven { url 'https://maven.fabric.io/public' }
 }
 
@@ -102,13 +102,8 @@ android {
 
     flavorDimensions "server"
     productFlavors {
-        peeklio {
-            buildConfigField "String", "SERVER", "\"http://www.peeklio.ru\""
-            buildConfigField "String", "LOGIN", getCredentials("LOGIN", "\"demo\"")
-            buildConfigField "String", "PASSWORD", getCredentials("PASSWORD", "\"demo\"")
-        }
         demo {
-            buildConfigField "String", "SERVER", "\"http://demo-watcher.flussonic.com\""
+            buildConfigField "String", "SERVER", "\"https://cloud.vsaas.io\""
             buildConfigField "String", "LOGIN", getCredentials("LOGIN", "\"demo\"")
             buildConfigField "String", "PASSWORD", getCredentials("PASSWORD", "\"demo\"")
         }
@@ -161,6 +156,6 @@ dependencies {
     compileOnly libraries.autoValueGson
     annotationProcessor libraries.autoValueGson
 
-    implementation 'com.erlyvideo:watcher-sdk:+'
+    implementation 'com.flussonic:watcher-sdk:+'
     implementation fileTree(include: ['*.aar'], dir: 'libs')
 }
