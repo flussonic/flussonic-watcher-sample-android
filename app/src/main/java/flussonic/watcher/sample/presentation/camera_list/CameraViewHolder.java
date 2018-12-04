@@ -44,13 +44,13 @@ class CameraViewHolder extends RecyclerView.ViewHolder {
         textViewTitle.setText(camera.title());
         if (camera.hasAnError()) {
             textViewStatus.setCompoundDrawablesWithIntrinsicBounds(R.drawable.camera_status_error, 0, 0, 0);
-            textViewStatus.setText(R.string.error);
+            textViewStatus.setText(R.string.inactive);
             itemView.setOnClickListener(null);
             thumbnailView.setVisibility(View.GONE);
             errorView.setVisibility(View.VISIBLE);
         } else {
             textViewStatus.setCompoundDrawablesWithIntrinsicBounds(R.drawable.camera_status_ok, 0, 0, 0);
-            textViewStatus.setText(camera.isAlive() ? R.string.active : R.string.inactive);
+            textViewStatus.setText(R.string.active);
             itemView.setOnClickListener(onClickListener);
             thumbnailView.setVisibility(View.VISIBLE);
             thumbnailView.show(camera, null);
